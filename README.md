@@ -8,5 +8,5 @@ This crate exposes a common interface to in_addr between Unix and Windows. Get r
 
 ## Documentation
 
-- **`cfg(windows)`**: https://animalsiknow.github.io/doc/in_addr
-- **`cfg(unix)`**: https://docs.rs/in_addr/*/in_addr
+- **`cfg(windows)`**: https://docs.rs/in_addr/*/x86_64-pc-windows-msvc/in_addr/
+- **`cfg(unix)`**: https://docs.rs/in_addr/*/x86_64-unknown-linux-gnu/in_addr/

@@ -1,12 +1,13 @@
 [package]
 name = "in_addr"
-version = "0.1.0"
+version = "0.1.2"
 authors = ["Simon Génier <1782845+animalsiknow@users.noreply.github.com>"]
 license = "BSD-3-Clause"
 edition = "2018"
 repository = "https://github.com/animalsiknow/in_addr"
-documentation = "https://animalsiknow.github.io/doc/in_addr"
+documentation = "https://docs.rs/in_addr/*/in_addr/"
 description = "Exposes a common interface to in_addr between Unix and Windows."
+readme = "README.md"
 keywords = ["socket", "winsock"]
 categories = ["no-std", "network-programming", "api-bindings"]
 
