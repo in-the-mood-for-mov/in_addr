@@ -1,0 +1,22 @@
+[package]
+name = "in_addr"
+version = "0.1.0"
+authors = ["Simon Génier <1782845+animalsiknow@users.noreply.github.com>"]
+license = "BSD-3-Clause"
+edition = "2018"
+repository = "https://github.com/animalsiknow/in_addr"
+documentation = "https://animalsiknow.github.io/doc/in_addr"
+description = "Exposes a common interface to in_addr between Unix and Windows."
+keywords = ["socket", "winsock"]
+categories = ["no-std", "network-programming", "api-bindings"]
+
+[features]
+default = []
+no-std = []
+
+[target.'cfg(unix)'.dependencies.libc]
+version = "0.2"
+
+[target.'cfg(windows)'.dependencies.winapi]
+version = "0.3"
+features = ["inaddr"]
