@@ -6,7 +6,7 @@
 //! * `InAddr`, a newtype wrapper around `in_addr`. It implements conversions to and from `u32`,
 //!   `std::net::Ipv4Addr`, and `in_addr`.
 
-#![cfg_attr(feature = "no-std", no_std)]
+#![cfg_attr(not(feature = "std"), no_std)]
 
 #[cfg(unix)]
 mod unix;
@@ -32,21 +32,21 @@ impl From<InAddr> for in_addr {
   }
 }
 
-#[cfg(not(feature = "no-std"))]
+#[cfg(feature = "std")]
 impl std::fmt::Debug for InAddr {
   fn fmt(&self, formatter: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
     Into::<std::net::Ipv4Addr>::into(*self).fmt(formatter)
   }
 }
 
-#[cfg(not(feature = "no-std"))]
+#[cfg(feature = "std")]
 impl From<std::net::Ipv4Addr> for InAddr {
   fn from(addr: std::net::Ipv4Addr) -> Self {
     Into::<u32>::into(addr).into()
   }
 }
 
-#[cfg(not(feature = "no-std"))]
+#[cfg(feature = "std")]
 impl From<InAddr> for std::net::Ipv4Addr {
   fn from(addr: InAddr) -> Self {
     Into::<u32>::into(addr).into()

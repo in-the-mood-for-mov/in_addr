@@ -1,6 +1,6 @@
 [package]
 name = "in_addr"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["Simon Génier <1782845+animalsiknow@users.noreply.github.com>"]
 license = "BSD-3-Clause"
 edition = "2018"
@@ -12,8 +12,8 @@ keywords = ["socket", "winsock"]
 categories = ["no-std", "network-programming", "api-bindings"]
 
 [features]
-default = []
-no-std = []
+default = ["std"]
+std = []
 
 [target.'cfg(unix)'.dependencies.libc]
 version = "0.2"
