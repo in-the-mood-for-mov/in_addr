@@ -20,6 +20,12 @@ pub use crate::unix::*;
 #[cfg(windows)]
 pub use crate::windows::*;
 
+impl InAddr {
+  pub fn new<T: Into<Self>>(t: T) -> Self {
+    t.into()
+  }
+}
+
 impl From<in_addr> for InAddr {
   fn from(in_addr: in_addr) -> Self {
     InAddr(in_addr)
