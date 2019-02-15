@@ -5,6 +5,20 @@
 //!   signature of `extern` functions.
 //! * `InAddr`, a newtype wrapper around `in_addr`. It implements conversions to and from `u32`,
 //!   `std::net::Ipv4Addr`, and `in_addr`.
+//!
+//! # Example
+//!
+//! ```
+//! extern {
+//!   fn inet_ntoa(addr: *const in_addr::in_addr) -> *const std::os::raw::c_char;
+//! }
+//!
+//! fn main() {
+//!   let addr = in_addr::InAddr::new(std::net::Ipv4Addr::LOCALHOST);
+//!   let addr_text = unsafe { std::ffi::CStr::from_ptr(inet_ntoa(&addr.into())) };
+//!   println!("The address is {}.", addr_text.to_string_lossy());
+//! }
+//! ```
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
